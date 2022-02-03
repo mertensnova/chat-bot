@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import requests from "./Requests.js";
+import requests from "../lib/Requests.js";
 import axios from "./axios";
 
 const Row = ({ title, fetchURL, isLarge = false }) => {
