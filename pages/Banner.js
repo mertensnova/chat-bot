@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "./axios";
 
-import requests from "./Requests";
+import requests from "../lib/Requests.js";
 
 const Banner = () => {
   const width = () => {
@@ -41,10 +41,10 @@ const Banner = () => {
   }
   return (
     <section
-      className={`relative h-[460px] object-contain `}
+      className={`relative h-[460px] object-contain bg-black`}
       style={{
         backgroundImage: `url("https://image.tmdb.org/t/p/original/${
-          size < 375 ? movie?.poster_path : movie?.backdrop_path
+          size <= 425 ? movie?.poster_path : movie?.backdrop_path
         }")`,
         backgroundPosition: "center center",
         backgroundSize: "cover",

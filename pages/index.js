@@ -2,7 +2,7 @@ import Head from "next/head";
 import Nav from "./Nav";
 import Row from "./Row";
 import Banner from "./Banner";
-import requests from "./Requests";
+import requests from "../lib/Requests.js";
 
 export default function Home() {
   return (
