@@ -42,7 +42,7 @@ const Banner = () => {
 
   return (
     <section
-      className={`relative h-screen object-contain bg-black z-10`}
+      className={`relative h-auto object-contain bg-black z-10`}
       style={{
         backgroundImage: `url("https://image.tmdb.org/t/p/original/${
           size <= 425 ? movie?.poster_path : movie?.backdrop_path
@@ -69,8 +69,8 @@ const Banner = () => {
           {truncate(movie?.overview, 150)}
         </p>
       </article>
-      <div className="banner-fade-2" />
       <div className="banner-fade" />
+      <div className="banner-fade-2" />
     </section>
   );
 };

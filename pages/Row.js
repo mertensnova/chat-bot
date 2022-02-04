@@ -14,7 +14,6 @@ const Row = ({ title, fetchURL, isLarge = false }) => {
     fetchData();
   }, [fetchURL]);
 
-  console.log(movies);
   return (
     <section className="relative w-full bg-black text-white overflow-x-hidden py-[30px] ">
       <h2 className="lg:text-3xl sm:text-2xl  p-[20px]">{title}</h2>
