@@ -13,7 +13,7 @@ const Banner = () => {
 
   const [movie, setMovie] = useState([]);
   const [size, setSize] = useState(width);
-  console.log(size);
+
   const checkSize = () => {
     setSize(width());
   };
@@ -39,9 +39,10 @@ const Banner = () => {
   function truncate(string, n) {
     return string?.length > n ? string.substr(0, n - 1) + "..." : string;
   }
+
   return (
     <section
-      className={`relative h-[460px] object-contain bg-black`}
+      className={`relative h-screen object-contain bg-black z-10`}
       style={{
         backgroundImage: `url("https://image.tmdb.org/t/p/original/${
           size <= 425 ? movie?.poster_path : movie?.backdrop_path
@@ -50,13 +51,13 @@ const Banner = () => {
         backgroundSize: "cover",
       }}
     >
-      <article className="ml-[30px] pt-36 h-48 text-white ">
+      <article className="ml-[30px] lg:pt-48  sm:pt-56  h-48 text-white">
         <h1 className="mb-3 pb-2 font-extrabold  sm:text-4xl lg:text-5xl">
           {movie?.title || movie?.name || movie?.original_name}
         </h1>
 
         <div className="flex w-full items-center justify-start">
-          <button className="mr-4 rounded-sm bg-Button px-8 py-2 font-Raleway font-bold   text-white  hover:bg-NetWhite hover:text-black">
+          <button className="mr-4 rounded-sm bg-Button px-8 py-2 font-Raleway font-bold  text-white  hover:bg-NetWhite hover:text-black">
             {" "}
             Play{" "}
           </button>
@@ -64,10 +65,11 @@ const Banner = () => {
             More Info
           </button>
         </div>
-        <p className=" w-[45rem] max-w-[360px] pt-4 text-2xl  sm:hidden lg:flex h-20 leading-snug">
+        <p className=" w-[45rem] max-w-[360px] pt-4 text-xl  sm:hidden lg:flex h-20 leading-snug">
           {truncate(movie?.overview, 150)}
         </p>
       </article>
+      <div className="banner-fade-2" />
       <div className="banner-fade" />
     </section>
   );

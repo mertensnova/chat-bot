@@ -23,7 +23,7 @@ const Row = ({ title, fetchURL, isLarge = false }) => {
             <img
               className={`${
                 isLarge ? "max-h-[270px]" : "max-h-[150px]"
-              } mr-3 cursor-pointer object-contain`}
+              } mr-3 cursor-pointer object-contain hover:scale-110 duration-300`}
               src={`https://image.tmdb.org/t/p/original/${
                 isLarge ? movie?.poster_path : movie?.backdrop_path
               }`}
