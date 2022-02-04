@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "./axios";
+import axios from "../lib/axios.js";
 
 import requests from "../lib/Requests.js";
 
