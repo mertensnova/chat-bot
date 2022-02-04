@@ -12,7 +12,7 @@
 }
 
 .banner-fade {
-  margin-top: 215px;
+  margin-top: 350px;
   height: 7.4rem;
   background-image: linear-gradient(
     180deg,
@@ -37,6 +37,6 @@
 
 @media screen and (max-width: 975px) {
   .banner-fade {
-    margin-top: 260px;
+    margin-top: 230px;
   }
 }
