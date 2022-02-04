@@ -14,7 +14,7 @@ const Footer = () => {
         <FontAwesomeIcon icon={faYoutube} className="mx-2"></FontAwesomeIcon>
         <FontAwesomeIcon icon={faInstagram} className="mx-2"></FontAwesomeIcon>
       </div>
-      <article className="w-full flex items-center justify-evenly text-xs py-5 flex-wrap lg:flex-row sm:flex-col">
+      <article className="w-full flex items-center justify-evenly text-sm py-5 flex-wrap lg:flex-row sm:flex-col">
         <ul className="lg:w-auto sm:w-full pl-4 pb-4">
           <li>
             <a class="member-footer-link" href="/browse/subtitles">
