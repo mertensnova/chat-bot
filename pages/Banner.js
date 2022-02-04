@@ -65,7 +65,7 @@ const Banner = () => {
             More Info
           </button>
         </div>
-        <p className=" w-[45rem] max-w-[360px] pt-4 text-xl  sm:hidden lg:flex h-20 leading-snug">
+        <p className=" w-[45rem] max-w-[360px] pt-4 text-2xl  sm:hidden lg:flex h-20 leading-snug">
           {truncate(movie?.overview, 150)}
         </p>
       </article>
