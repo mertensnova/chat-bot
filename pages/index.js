@@ -15,6 +15,7 @@ export default function Home() {
       <Banner />
 
       <Row title="NETFLIX ORIGINALS" fetchURL={requests.fetchNetflix} isLarge />
+      <Row title="Now Playing" fetchURL={requests.fetchNowPlaying} />
       <Row title="Trending Now" fetchURL={requests.fetchMovies} />
       <Row title="Top Rated" fetchURL={requests.fetchTopRated} />
       <Row title="TV Shows" fetchURL={requests.fetchTVShows} />

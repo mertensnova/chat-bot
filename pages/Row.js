@@ -4,7 +4,6 @@ import axios from "../lib/axios";
 
 const Row = ({ title, fetchURL, isLarge = false }) => {
   const [movies, setMovies] = useState([]);
-  const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -15,11 +14,7 @@ const Row = ({ title, fetchURL, isLarge = false }) => {
     fetchData();
   }, [fetchURL]);
 
-  const moreInfo = (e) => {
-    let more = e.target.alt;
-    console.log(more);
-  };
-
+  console.log(movies);
   return (
     <section className="relative w-full bg-black text-white overflow-x-hidden py-[30px] ">
       <h2 className="lg:text-3xl sm:text-2xl  p-[20px]">{title}</h2>
@@ -39,7 +34,6 @@ const Row = ({ title, fetchURL, isLarge = false }) => {
                 }`}
                 alt={movie.name}
                 key={movie.id}
-                onClick={moreInfo}
               />
             </>
           );
