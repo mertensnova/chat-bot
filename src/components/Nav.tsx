@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { BellIcon } from "@heroicons/react/solid";
 import { SearchIcon } from "@heroicons/react/solid";
-import Image from "next/image";
 
 const Nav = () => {
    const [showList, setShowList] = useState(false);

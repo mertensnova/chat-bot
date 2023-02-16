@@ -1,8 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from "react";
-import requests from "../pages/api/axios";
 import axios from "../pages/api/axios";
-import Image from "next/image";
 
 const Row = ({ title, fetchURL, isLarge = false }: any) => {
    const [movies, setMovies] = useState([]);

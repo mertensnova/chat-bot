@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "../pages/api/axios";
-
 import requests from "../pages/api/Requests";
 
 const Banner = () => {
