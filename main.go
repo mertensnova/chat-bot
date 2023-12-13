@@ -45,7 +45,6 @@ type Usage struct {
 var (
 	Token  string
 	OPENAI string
-    PERSONA string
 )
 
 func init() {
@@ -56,7 +55,6 @@ func init() {
 
 	Token = os.Getenv("DISCORD_TOKEN")
 	OPENAI = os.Getenv("KEY")
-	PERSONA = os.Getenv("P")
 }
 
 func main() {
@@ -65,7 +63,7 @@ func main() {
 		"messages": []map[string]interface{}{
 			{
 				"role":    "system",
-				"content": "You are a assistant, skilled in explaining concepts .",
+				"content": "Your virtual confidant, genuinely intrigued by your thoughts and ready to make our conversations uniquely enjoyable",
 			},
 			{
 				"role":    "user",
@@ -138,8 +136,6 @@ func MapToJSONString(inputMap map[string]interface{}) (string, error) {
 }
 
 func OpenAI(payload string) string {
-	//cmd := `curl https://api.openai.com/v1/chat/completions   -H "Content-Type: application/json" -H "Authorization: Bearer ` + OPENAI + `" -d ` + payload
-
 	url := "https://api.openai.com/v1/chat/completions"
 
 	client := &http.Client{}
@@ -150,7 +146,7 @@ func OpenAI(payload string) string {
 	}
 
 	req.Header.Add("Content-Type", "application/json")
-	req.Header.Add("Authorization", "Bearer "+OPENAI)
+	req.Header.Add("Authorization", "Bearer "+ OPENAI)
 
 	resp, err := client.Do(req)
 	if err != nil {
