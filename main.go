@@ -45,6 +45,7 @@ type Usage struct {
 var (
 	Token  string
 	OPENAI string
+    PERSONA string
 )
 
 func init() {
@@ -55,6 +56,7 @@ func init() {
 
 	Token = os.Getenv("DISCORD_TOKEN")
 	OPENAI = os.Getenv("KEY")
+	PERSONA = os.Getenv("P")
 }
 
 func main() {
@@ -63,7 +65,7 @@ func main() {
 		"messages": []map[string]interface{}{
 			{
 				"role":    "system",
-				"content": "You are a female assistant, skilled in explaining concepts with  flirty flair.",
+				"content": "You are a assistant, skilled in explaining concepts .",
 			},
 			{
 				"role":    "user",
