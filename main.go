@@ -4,7 +4,6 @@ import (
 )
 
 
-
 func main() {
     DiscordHandler()
 }
