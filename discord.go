@@ -10,7 +10,7 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
-func DiscordHandler() {
+func Discord() {
 	dg, err := discordgo.New("Bot " + Token)
 
 	if err != nil {
@@ -41,21 +41,28 @@ func DiscordHandler() {
 
 }
 
+/*
+	curl http://localhost:11434/api/chat -d '{
+	  "model": "llama3",
+	  "messages": [
+	    {
+	      "role": "user",
+	      "content": "why is the sky blue?"
+	    }
+	  ],
+	  "stream": false
+	}'
+*/
 func SendMessages(s *discordgo.Session, m *discordgo.MessageCreate) {
 	payload := map[string]interface{}{
-		"model": "gpt-3.5-turbo",
+		"model": "gemma:2b",
 		"messages": []map[string]interface{}{
-			{
-				"role":    "system",
-				"content": role,
-			},
 			{
 				"role":    "user",
 				"content": "",
 			},
 		},
-
-		"max_tokens": 200,
+		"stream": false,
 	}
 
 	if m.Author.ID == s.State.User.ID {
@@ -70,9 +77,8 @@ func SendMessages(s *discordgo.Session, m *discordgo.MessageCreate) {
 	}
 
 	if len(messages) > 0 {
-		messages[1]["content"] = m.Content
+		messages[0]["content"] = m.Content
 	}
-
 	p, err := MapToJSONString(payload)
 
 	if err != nil {
@@ -83,8 +89,6 @@ func SendMessages(s *discordgo.Session, m *discordgo.MessageCreate) {
 
 	if m.Content != "" {
 		s.ChannelMessageSend(m.ChannelID, c)
-		fmt.Println("User -> " + m.Content)
-		fmt.Println("Aether -> " + c)
 	}
 
 }

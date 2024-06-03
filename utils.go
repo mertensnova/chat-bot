@@ -8,9 +8,22 @@ import (
 	"net/http"
 )
 
+/*
+curl http://localhost:11434/api/chat -d '{
+  "model": "llama3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "why is the sky blue?"
+    }
+  ],
+  "stream": false
+}'
+*/
+
 
 func OpenAI(payload string) string {
-	url := "https://api.openai.com/v1/chat/completions"
+	url := "http://localhost:11434/api/chat"
 
 
 	client := &http.Client{}
@@ -21,7 +34,7 @@ func OpenAI(payload string) string {
 	}
 
 	req.Header.Add("Content-Type", "application/json")
-	req.Header.Add("Authorization", "Bearer "+OPENAI)
+    //req.Header.Add("Authorization", "Bearer "+OPENAI)
 
 	resp, err := client.Do(req)
 	if err != nil {
@@ -33,6 +46,8 @@ func OpenAI(payload string) string {
 	if err != nil {
 		fmt.Println("Error reading response body:", err)
 	}
+
+    fmt.Println(string(body))
 
 	return string(body)
 }
@@ -57,9 +72,9 @@ func Parser(body string) string {
 		fmt.Println("Error parsing JSON:", err)
 	}
 
-	if len(response.Choices) > 0 {
-		content := response.Choices[0].Message.Content
-		return content
+	if len(response.Message.Content) > 0 {
+		content := response.Message.Content	
+        return content
 	}
 
 	return ""
